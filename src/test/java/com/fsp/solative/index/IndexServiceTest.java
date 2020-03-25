@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class IndexServiceTest {
-    private static final Logger logger = LoggerFactory.getLogger(IndexServiceTest.class);
+    private static final Logger logger = LoggerFactory.getLogger (IndexServiceTest.class);
     @Autowired
     IndexService indexService;
 
@@ -33,22 +33,23 @@ public class IndexServiceTest {
             // wait for 2 seconds
             Thread.sleep (2000);
             Statistics statistics = indexService.getStatistics ("testIN");
-            assertEquals (2,statistics.getCount ());
+            assertEquals (2, statistics.getCount ());
             // wait for 1 second
             Thread.sleep (1000);
             statistics = indexService.getStatistics ("testIN");
-            assertEquals (1,statistics.getCount ());
+            assertEquals (1, statistics.getCount ());
             // wait for 1 second
             Thread.sleep (1000);
             statistics = indexService.getStatistics ("testIN");
-            assertEquals (0,statistics.getCount ());
+            assertEquals (0, statistics.getCount ());
 
-        } catch (InterruptedException e){
-            logger.error (e.getMessage (),e);
+        } catch (InterruptedException e) {
+            logger.error (e.getMessage (), e);
         }
     }
+
     @Test
-    public void testGetStatistics1(){
+    public void testGetStatistics1() {
         indexService.reset ();
         long currentTimeStamp = new Date ().getTime ();
         try {
@@ -59,31 +60,30 @@ public class IndexServiceTest {
 
             Thread.sleep (2000);
             Statistics statistics = indexService.getStatistics ("testIN");
-            assertEquals (2,statistics.getCount ());
-            assertEquals (11.5,statistics.getAvg ());
-            assertEquals (8.5,statistics.getMin ());
-            assertEquals (14.5,statistics.getMax ());
+            assertEquals (2, statistics.getCount ());
+            assertEquals (11.5, statistics.getAvg ());
+            assertEquals (8.5, statistics.getMin ());
+            assertEquals (14.5, statistics.getMax ());
             // wait for 1 second
             Thread.sleep (1000);
             statistics = indexService.getStatistics ("testIN");
-            assertEquals (1,statistics.getCount ());
-            assertEquals (14.5,statistics.getAvg ());
-            assertEquals (14.5,statistics.getMin ());
-            assertEquals (14.5,statistics.getMax ());
+            assertEquals (1, statistics.getCount ());
+            assertEquals (14.5, statistics.getAvg ());
+            assertEquals (14.5, statistics.getMin ());
+            assertEquals (14.5, statistics.getMax ());
             // wait for 1 second
             Thread.sleep (1000);
             statistics = indexService.getStatistics ("testIN");
-            assertEquals (0,statistics.getCount ());
-
-
+            assertEquals (0, statistics.getCount ());
 
 
         } catch (InterruptedException e) {
-            logger.error (e.getMessage (),e);
+            logger.error (e.getMessage (), e);
         }
     }
+
     @Test
-    public void testGetStatistics2(){
+    public void testGetStatistics2() {
         indexService.reset ();
         long currentTimeStamp = new Date ().getTime ();
         try {
@@ -94,29 +94,26 @@ public class IndexServiceTest {
             indexService.tick ("testIN4", 14.5, currentTimeStamp - 60000 + 4000);
 
             Thread.sleep (2000);
-            System.out.println ("took "+(System.currentTimeMillis ()-currentTimeStamp)+ " mili seconds");
+            System.out.println ("took " + (System.currentTimeMillis () - currentTimeStamp) + " mili seconds");
             Statistics statistics = indexService.getStatistics ();
-            assertEquals (3,statistics.getCount ());
-            assertEquals (11.066666666666668,statistics.getAvg ());
-            assertEquals (8.5,statistics.getMin ());
-            assertEquals (14.5,statistics.getMax ());
+            assertEquals (3, statistics.getCount ());
+            assertEquals (11.066666666666668, statistics.getAvg ());
+            assertEquals (8.5, statistics.getMin ());
+            assertEquals (14.5, statistics.getMax ());
             // wait for 1 second
             Thread.sleep (1000);
             statistics = indexService.getStatistics ();
-            assertEquals (2,statistics.getCount ());
-            assertEquals (11.5,statistics.getAvg ());
-            assertEquals (8.5,statistics.getMin ());
-            assertEquals (14.5,statistics.getMax ());
+            assertEquals (2, statistics.getCount ());
+            assertEquals (11.5, statistics.getAvg ());
+            assertEquals (8.5, statistics.getMin ());
+            assertEquals (14.5, statistics.getMax ());
             // wait for 1 second
             Thread.sleep (1000);
             statistics = indexService.getStatistics ();
-            assertEquals (1,statistics.getCount ());
-
-
-
+            assertEquals (1, statistics.getCount ());
 
         } catch (InterruptedException e) {
-            logger.error (e.getMessage (),e);
+            logger.error (e.getMessage (), e);
         }
     }
 
