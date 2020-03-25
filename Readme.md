@@ -2,11 +2,12 @@
 
 ### Build the project by maven
 It is assumed that the maven and jdk8+ is already installed on your system and configured to be in 
-path. 
+path. Change directory to project directory and run the following command.
 
     mvn clean package
 
 ### Run the project 
+Change directory to project directory and run the following command.
 
     java -jar target\index-0.0.1.jar
 
