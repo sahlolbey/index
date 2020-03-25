@@ -2,7 +2,6 @@ package com.fsp.solative.index.domain;
 
 import com.fsp.solative.index.dto.Statistics;
 import lombok.extern.slf4j.Slf4j;
-
 import java.util.Date;
 import java.util.concurrent.ConcurrentSkipListMap;
 
