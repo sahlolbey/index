@@ -85,9 +85,10 @@ public class IndexServiceTest {
     @Test
     public void testGetStatistics2() {
         indexService.reset ();
-        long currentTimeStamp = new Date ().getTime ();
-        try {
 
+        try {
+            Thread.sleep (1000);
+            long currentTimeStamp = new Date ().getTime ();
             indexService.tick ("testIN1", 2.20, currentTimeStamp - 60000 + 1000);
             indexService.tick ("testIN2", 10.2, currentTimeStamp - 60000 + 2000);
             indexService.tick ("testIN3", 8.5, currentTimeStamp - 60000 + 3000);
