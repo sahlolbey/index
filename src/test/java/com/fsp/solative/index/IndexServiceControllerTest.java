@@ -127,7 +127,7 @@ public class IndexServiceControllerTest extends AbstractRestTest {
             instrument.put ("timestamp", Long.toString (timestamp));
             postRest (uri, instrument);
 
-            Thread.sleep (2000);
+            Thread.sleep (1000);
             Statistics statistics = getRest ("/statistics/testIN");
             assertEquals (3, statistics.getCount ());
             assertEquals (11.066666666666668, statistics.getAvg ());
